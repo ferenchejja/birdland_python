@@ -2,6 +2,7 @@
 
 import sys
 import requests
+import csv
 
 class apikeymanager():
     def __init__(self):
@@ -10,6 +11,9 @@ class apikeymanager():
         self.f.close()
     def getkey(self):
         return(self.key)
+
+class csvmanager():
+         
 
 
 
