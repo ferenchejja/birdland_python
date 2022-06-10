@@ -3,6 +3,8 @@
 import sys
 import requests
 import csv
+import datetime
+from datetime import datetime
 
 class apikeymanager():
     def __init__(self):
@@ -13,6 +15,34 @@ class apikeymanager():
         return(self.key)
 
 class csvmanager():
+    def __init__(self):
+        print()
+
+    def read_current():
+        print()
+
+    def write_current():
+        print()
+    def check_in_current():
+        print()
+    def write_log(self,varos,lat,lon,n1,n2,n3):
+        print()
+       
+
+class logtofile:
+    def __init__(self,logfilenev):
+        self.fl = open(logfilenev+".csv","a")
+
+    def write(self,varos,lat,lon,n1,n2,n3,n4):
+        self.fl.write(datetime.now().strftime("%y.%m.%d %H.%M:%S")+","+varos+","+str(lat)+","+str(lon)+","+str(n1)+","+str(n2)+","+str(n3)+","+str(n4)+chr(13))
+        
+    
+    def close(self):
+        self.fl.close()
+
+    
+
+
          
 
 
@@ -54,3 +84,7 @@ print("1.",n1)
 print("2.",n2)
 print("3.",n3)
 print("4.",n4)
+
+csvlog=logtofile("rainlog")
+csvlog.write(varos,varos_lat,varos_lon,n1,n2,n3,n4)
+csvlog.close()
