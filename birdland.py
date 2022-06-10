@@ -64,13 +64,20 @@ if varos[-3:-2]!=",":
     varos=varos+",hu"
 print(varos)
 cresp=requests.get("http://api.openweathermap.org/geo/1.0/direct?q="+varos+"&limit=1&appid="+ak.getkey())
-
+print("cresp status code:",cresp.status_code)
+if cresp.status_code!=200:
+    print("Hiba az openweathermap api lekérdezésnél. Város lekérdezés. Státusz kód: ",cresp.status_code)
+    exit()
 cresp_js=cresp.json()
 varos_lat=cresp_js[0]["lat"]
 varos_lon=cresp_js[0]["lon"]
 print("lat:",varos_lat,"lon:",varos_lon)
 wresp= requests.get("https://api.openweathermap.org/data/2.5/onecall?lat="+str(varos_lat)+"&lon="+str(varos_lon)+"&exclude=alerts,hourly,daily,current&units=metric&appid="+ak.getkey())
 minut=wresp.json()["minutely"]
+print("wresp status code:",wresp.status_code)
+if wresp.status_code!=200:
+    print("Hiba az openweathermap api lekérdezésnél. Előrejelzés lekérdezés. Státusz kód: ",wresp.status_code)
+    exit()
 n1=n2=n3=n4=0
 i=0
 while i<=14:
