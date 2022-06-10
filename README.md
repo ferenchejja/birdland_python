@@ -1,2 +1,2 @@
 # birdland
-Idõjárásjelentés openwheatermap api-val
+IdÅ‘jÃ¡rÃ¡sjelentÃ©s openwheatermap api-val
